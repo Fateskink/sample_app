@@ -28,7 +28,7 @@
                             <li><%= link_to "Profile", current_user %></li>
                             <li><%= link_to "Settings", edit_user_path(current_user) %></li>
                             <li class="divider"></li>
-                            <li><%= link_to "Logout", logout_path, method: :destroy %></li>
+                            <li><%= link_to "Logout", logout_path, method: :delete %></li>
                         </ul>
                     </li>
                 <% else %>
