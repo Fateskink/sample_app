@@ -186,6 +186,23 @@ input
     }
 
 .checkbox 
+<<<<<<< HEAD
+    {
+        margin-top: -10px;
+        margin-bottom: 10px;
+        span 
+            {
+            margin-left: 20px;
+            font-weight: normal;
+            }
+    }
+#session_remember_me 
+    {
+    width: auto;
+    margin-left: 0;
+    }
+
+=======
 {
     margin-top: -10px;
     margin-bottom: 10px;
@@ -199,3 +216,4 @@ input
     width: auto;
     margin-left: 0;  
 }
+>>>>>>> fix9-10-2th
