@@ -18,10 +18,17 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      # from 22 to 25
       reset_session
       log_in @user
       flash.now[:success] = "Welcome, U mazer Fuckah"
-      redirect_to user_url (@user)
+      redirect_to user_url (@user)    
+      # not now but comment lately if active email is lanched
+
+      # UserMailer.account_activation(@user).deliver_now     #send email active
+      # @user.send_activation_email   #uncomment when active email is lanched
+      flash[:info] = "Please check your email to activate your account."
+      # redirect_to root_url   #uncomment when active email is lanched
     else
       render 'new'
     end
