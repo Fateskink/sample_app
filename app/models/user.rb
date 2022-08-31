@@ -80,7 +80,7 @@ class User < ApplicationRecord
     def authenticated?(attribute, token)
         digest = send("#{attribute}_digest")
         return false if digest.nil?
-        Bcrypt::Password.new(digest).is_password?(token)
+        BCrypt::Password.new(digest).is_password?(token)
     end
 
 
@@ -93,6 +93,13 @@ class User < ApplicationRecord
     # Sends activation email.
     def send_activation_email
         UserMailer.account_activation(self).deliver_now
+    end
+
+    # Defines a proto-feed.
+    # See "Following users" for the full implementation.
+    def feed
+        Micropost.where("user_id = ?", id)
+        # Micropost
     end
 
 private
