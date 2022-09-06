@@ -105,10 +105,10 @@ class User < ApplicationRecord
 
     # Defines a proto-feed.
     # See "Following users" for the full implementation.
-    def feed
-        Micropost.where("user_id = ?", id)
-        # Micropost
-    end
+    # def feed
+    #     Micropost.where("user_id = ?", id)
+    #     # Micropost
+    # end
 
 # Sets the password reset attributes.
     def create_reset_digest
@@ -129,11 +129,6 @@ class User < ApplicationRecord
     # Follows a user.
     def follow(other_user)
         following << other_user unless self == other_user
-
-    # Returns a user's status feed.
-    def feed
-        Micropost.where("user_id IN (?) OR user_id = ?", following_ids, id)
-    end
     end
     # Unfollows a user.
     def unfollow(other_user)
